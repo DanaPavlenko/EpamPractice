@@ -72,6 +72,7 @@ public class Main {
 				System.out.println("Введіть одну або кілька перших букв назви станції: ");
 				String station = sc.next();
 				isInputed = false;
+				
 				System.out.println("На скільки найближчих годин Ви розраховуєте?");
 				while (!isInputed) {
 					try {

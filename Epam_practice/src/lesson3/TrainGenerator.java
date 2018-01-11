@@ -17,7 +17,7 @@ public class TrainGenerator {
 	}
 
 	// parse text file in list of strings
-	public List<String> parceFile(String file) {
+	private List<String> parceFile(String file) {
 		BufferedReader reader;
 		String line;
 		List<String> lines = new ArrayList<>();
@@ -37,7 +37,7 @@ public class TrainGenerator {
 	}
 
 	// parse list of strings in objects of class Train
-	public Train[] parceStringsInObjects(List<String> lines) {
+	private Train[] parceStringsInObjects(List<String> lines) {
 		List<Train> trains = new ArrayList<>();
 
 		for (String line : lines) {
