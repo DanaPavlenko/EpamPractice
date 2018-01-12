@@ -15,7 +15,7 @@ public class Task2 {
 
 	public static List<String> input() {
 
-		System.out.println("Enter string");
+		System.out.println("Enter string and press twice key 'enter' to get the result:");
 		List<String> lines = new ArrayList<>();
 		Scanner sc = new Scanner(System.in);
 		while (true) {
