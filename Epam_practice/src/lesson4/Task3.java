@@ -13,24 +13,25 @@ public class Task3 {
 		System.out.println("Sorted rotations:");
 		output(sortedRotations);
 		String lastLetters = takeLastLetters(sortedRotations);
-		System.out.println("Last letters:");
-		System.out.println(lastLetters);
+		System.out.println("Last letters: " + lastLetters);
 	}
 
+	// input word and create array of rotations
 	public static String[] inputAndCreateRotations() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter string:");
-		String form = sc.next();
-		String[] rotations = new String[form.length()];
-		for (int i = 0; i < form.length(); i++) {
-			rotations[i] = form;
-			form = form.substring(1, form.length()) + form.substring(0, 1);
+		String word = sc.next();
+		String[] rotations = new String[word.length()];
+		for (int i = 0; i < word.length(); i++) {
+			rotations[i] = word;
+			word = word.substring(1, word.length()) + word.substring(0, 1);
 		}
 		System.out.println();
 		sc.close();
 		return rotations;
 	}
 
+	// bubble sort of rotations in alphabet order
 	public static String[] sort(String[] rotations) {
 		for (int i = rotations.length - 1; i > 0; i--) {
 			for (int j = 0; j < i; j++) {
@@ -44,6 +45,7 @@ public class Task3 {
 		return rotations;
 	}
 
+	// take last letters of every rotation and write them in String object
 	public static String takeLastLetters(String[] sortedRotations) {
 
 		String lastLettets = new String();
@@ -53,6 +55,7 @@ public class Task3 {
 		return lastLettets;
 	}
 
+	// output array of rotations
 	public static void output(String[] rotations) {
 		for (int i = 0; i < rotations.length; i++) {
 			System.out.println(rotations[i]);

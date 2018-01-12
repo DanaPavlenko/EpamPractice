@@ -13,6 +13,7 @@ public class Task2 {
 		rightJustify(lines, maxLength);
 	}
 
+	// input lines of text and write them in list of String objects
 	public static List<String> input() {
 
 		System.out.println("Enter string and press twice key 'enter' to get the result:");
@@ -28,6 +29,7 @@ public class Task2 {
 		return lines;
 	}
 
+	// find the longest line
 	public static int findMaxLength(List<String> lines) {
 
 		int max = 0;
@@ -38,6 +40,7 @@ public class Task2 {
 		return max;
 	}
 
+	// right justify by length of the longest line
 	public static void rightJustify(List<String> lines, int max) {
 
 		for (String line : lines) {

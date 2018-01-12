@@ -11,6 +11,7 @@ public class Task1 {
 
 	}
 
+	// input lines of text and write them in StringBuffer object
 	public static StringBuffer input() {
 
 		System.out.println("Enter string and press twice key 'enter' to get the result:");
@@ -27,6 +28,7 @@ public class Task1 {
 
 	}
 
+	// delete repeatable symbols from text
 	public static void deleteRepeatedLetters(StringBuffer text) {
 
 		for (int i = 0; i < text.length() - 1; i++) {
