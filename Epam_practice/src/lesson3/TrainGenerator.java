@@ -8,6 +8,11 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import lesson3.entities.Schedule;
+import lesson3.entities.Station;
+import lesson3.entities.Stay;
+import lesson3.entities.Train;
+
 public class TrainGenerator {
 	// create array of trains
 	public Train[] createTrains(String file) {
@@ -42,20 +47,20 @@ public class TrainGenerator {
 
 		for (String line : lines) {
 			String[] splitted = line.split(" ");
-			int id = Integer.valueOf(splitted[0]);
+			String id = splitted[0];
 			String name = splitted[1];
 			List<Stay> stays = new ArrayList<>();
-			stays.add(new Stay(splitted[2], null, LocalTime.parse(splitted[3])));
+			stays.add(new Stay(Station.valueOf(splitted[2].toUpperCase()), null, LocalTime.parse(splitted[3])));
 			for (int i = 4; i < splitted.length - 4; i += 3) {
-				String stay = splitted[i];
+				Station station = Station.valueOf(splitted[i].toUpperCase());
 				LocalTime arrivalTime = LocalTime.parse(splitted[i + 1]);
 				LocalTime departureTime = LocalTime.parse(splitted[i + 2]);
-				stays.add(new Stay(stay, arrivalTime, departureTime));
+				stays.add(new Stay(station, arrivalTime, departureTime));
 			}
-			stays.add(new Stay(splitted[splitted.length - 4], LocalTime.parse(splitted[splitted.length - 3]), null));
-			String schedule = splitted[splitted.length - 2];
-			int freePlaces = Integer.valueOf(splitted[splitted.length - 1]);
-			trains.add(new Train(id, name, stays, schedule, freePlaces));
+			stays.add(new Stay(Station.valueOf(splitted[splitted.length - 4].toUpperCase()), LocalTime.parse(splitted[splitted.length - 3]), null));
+			String daysOfMove = splitted[splitted.length - 2];
+			int placesNumber = Integer.valueOf(splitted[splitted.length - 1]);
+			trains.add(new Train(id, name, placesNumber, new Schedule(stays, daysOfMove)));
 		}
 
 		Train[] arrayOfTrains = trains.toArray(new Train[trains.size()]);

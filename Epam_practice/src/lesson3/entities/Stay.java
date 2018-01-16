@@ -1,14 +1,14 @@
-package lesson3;
+package lesson3.entities;
 
 import java.time.LocalTime;
 
 public class Stay {
 	private LocalTime arrivalTime;
 	private LocalTime departureTime;
-	private String name;
+	private Station station;
 
-	public Stay(String name, LocalTime arrivalTime, LocalTime departureTime) {
-		this.name = name;
+	public Stay(Station station, LocalTime arrivalTime, LocalTime departureTime) {
+		this.station = station;
 		this.arrivalTime = arrivalTime;
 		this.departureTime = departureTime;
 	}
@@ -21,8 +21,10 @@ public class Stay {
 		return departureTime;
 	}
 
-	public String getName() {
-		return name;
+	public Station getStation() {
+		return station;
 	}
+	
+	
 
 }
