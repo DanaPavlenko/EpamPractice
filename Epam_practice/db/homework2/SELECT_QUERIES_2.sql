@@ -186,15 +186,6 @@ FROM ships sh, classes c
 WHERE sh.class = c.class
 GROUP BY c.country, sh.launched; 
 
-SELECT c.class, t.y
-FROM classes c
-LEFT JOIN
-(SELECT class, (launched) AS y
-FROM ships
-GROUP BY class)
-AS t ON c.class = t.class;
-
-
 -- 9
 SELECT DISTINCT o.battle, c.country, COUNT(o.ship) AS ship_number
 FROM outcomes o
