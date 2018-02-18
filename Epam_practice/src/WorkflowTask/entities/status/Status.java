@@ -1,10 +1,14 @@
-package WorkflowTask.status;
+package WorkflowTask.entities.status;
 
 public abstract class Status {
 
 	public abstract String getName();
 
-	public boolean canBeOpened() {
+	public boolean canBecomeAssigned() {
+		return false;
+	}
+
+	public boolean canBecomeOpened() {
 		return false;
 	}
 

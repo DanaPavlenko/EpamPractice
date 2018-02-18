@@ -1,4 +1,4 @@
-package WorkflowTask.status;
+package WorkflowTask.entities.status;
 
 public class OpenedStatus extends Status {
 
@@ -7,7 +7,7 @@ public class OpenedStatus extends Status {
 	}
 
 	@Override
-	public boolean canBecomeResolved() {
+	public boolean canBecomeAssigned() {
 		return true;
 
 	}

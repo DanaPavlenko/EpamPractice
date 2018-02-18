@@ -1,13 +1,11 @@
 package WorkflowTask;
 
+import WorkflowTask.view.View;
+
 public class Main {
 
 	public static void main(String[] args) {
-		Task task = new Task();
-		task.setOpenedStatus();
-		task.setResolvedStatus();
-		task.setClosedStatus();
-		task.showStatus();
+		new View().show();
 	}
 
 }

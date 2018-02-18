@@ -1,17 +1,34 @@
-package WorkflowTask;
+package WorkflowTask.entities;
 
-import WorkflowTask.status.*;
+import WorkflowTask.entities.status.*;
 
 public class Task {
 
+	private String name;
+
 	private Status status;
 
-	public Task() {
+	public Task(String name) {
+		this.name = name;
 		this.status = new OpenedStatus();
 	}
 
-	public Task(Status status) {
+	public Task(String name, Status status) {
+		this.name = name;
 		this.status = status;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "Task [name=" + name + ", status=" + status.getName() + "]";
 	}
 
 	public void showStatus() {
@@ -28,10 +45,17 @@ public class Task {
 	}
 
 	public void setOpenedStatus() {
-		if (status.canBeOpened())
+		if (status.canBecomeOpened())
 			changeStatus(new OpenedStatus());
 		else
 			forbidChangeStatus(new OpenedStatus());
+	}
+
+	public void setAssignedStatus() {
+		if (status.canBecomeAssigned())
+			changeStatus(new AssignedStatus());
+		else
+			forbidChangeStatus(new AssignedStatus());
 	}
 
 	public void setClosedStatus() {

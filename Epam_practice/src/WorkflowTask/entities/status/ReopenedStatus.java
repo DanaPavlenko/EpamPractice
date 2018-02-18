@@ -1,4 +1,4 @@
-package WorkflowTask.status;
+package WorkflowTask.entities.status;
 
 public class ReopenedStatus extends Status {
 
